@@ -1,0 +1,25 @@
+public static void m1(int a[]) { // Total Big O: 9n^2 + 5n + 2
+    for (int i = 0; i < a.length; i++) { // 2 + 3(n), Total: (9n + (2 + 3))n + 2
+        for (int j = 1; j < (a.length - i); j++) { // 2 + 4(n), Total: (5 + 4)n + 2
+            if (a[j - 1] > a[j]) { // 1, Total: 5
+                int t = a[j - 1]; // 2
+                a[j - 1] = a[j]; // 1
+                a[j] = t; // 1
+            }
+        }
+    }
+}
+
+public static void m2(int a[]) { // Total Big O: 15n + 2
+    for (int i = 0; i < a.length; i++) { //2 + 3(n), Total 2 + (7 + 5 + 3(n))
+        if (a[j - 1] > a[j]) { // 1, Total 7 + 5
+            int t = a[j - 1]; // 2
+            a[j - 1] = a[j]; // 1
+            a[j] = t; // 1
+        } else { // Total = 7
+			int x = a[i + 1]; // 2
+			a[i - 1] = a[i]; // 1
+			int y = x * x * a[i + 1]; // 4
+        }
+    }
+}
